@@ -32,7 +32,7 @@ const restaurantSlice = createSlice({
     modifyRestaurant: (state, action) => {
       const index = state.data.findIndex((r) => r.id === action.payload.id);
       if (index !== -1) {
-        state.data[index] = action.payload;
+        state.data[index] = { ...state.data[index], ...action.payload };
       }
     },
   },

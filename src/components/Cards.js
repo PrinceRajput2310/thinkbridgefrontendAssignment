@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useDispatch } from "react-redux";
-import { deleteRestaurant } from "../redux/resturantSlice";
+import { deleteRestaurant, modifyRestaurant } from "../redux/resturantSlice";
 //import DropdownButton from "react-bootstrap/DropdownButton";
 // import AddResturantModel from "./model/AddResturant";
 import Card from "react-bootstrap/Card";
@@ -14,12 +14,26 @@ const Cards = ({ data, handleEdit }) => {
   const [isDeleteModelOpen, setIsDeleteModelOpen] = useState(false);
   const [resturantName, setResturantName] = useState("");
   const [deletedId, setDeletedId] = useState("");
+  const [editId, setEditId] = useState("");
+  const [newResturantName, setNewResturantname] = useState("");
+  const [newAddress, setNewAddress] = useState("");
   const dispatch = useDispatch();
+  // const { data } = useSelector((state) => state.restaurants);
 
   const handleDelete = (id) => {
     console.log("delete function is getting call");
     dispatch(deleteRestaurant(id));
     setIsDeleteModelOpen(false);
+  };
+  const handleModify = (id) => {
+    const editedData = {
+      id,
+      rname: newResturantName,
+      address: newAddress,
+    };
+
+    dispatch(modifyRestaurant(editedData));
+    setIsEditModelOpen(false);
   };
 
   const openDeleteModel = (rName, id) => {
@@ -31,11 +45,22 @@ const Cards = ({ data, handleEdit }) => {
     setIsDeleteModelOpen(false);
   };
 
-  const openEditModel = () => {
+  const openEditModel = (id, name, address) => {
+    setEditId(id);
+    setNewAddress(address);
+    setNewResturantname(name);
     setIsEditModelOpen(true);
   };
   const closeEditModel = () => {
     setIsEditModelOpen(false);
+  };
+
+  const onChangeNewResturant = (e) => {
+    setNewResturantname(e.target.value);
+  };
+
+  const onChangeNewAddress = (e) => {
+    setNewAddress(e.target.value);
   };
   console.log("Child components");
   return (
@@ -64,7 +89,9 @@ const Cards = ({ data, handleEdit }) => {
                 <Dropdown.Menu align={"end"}>
                   <Dropdown.Item
                     as="button"
-                    onClick={() => openEditModel(element.id)}
+                    onClick={() =>
+                      openEditModel(element.id, element.rname, element.address)
+                    }
                     // onClick={() => handleEdit(element.id)}
                   >
                     Edit
@@ -105,6 +132,12 @@ const Cards = ({ data, handleEdit }) => {
         isOpenEditModel={isEditModelOpen}
         openEditModel={openEditModel}
         closeEditModel={closeEditModel}
+        handleModify={handleModify}
+        editId={editId}
+        newResturantName={newResturantName}
+        onChangeNewResturant={onChangeNewResturant}
+        newAddress={newAddress}
+        onChangeNewAddress={onChangeNewAddress}
       />
 
       <DeleteResturant

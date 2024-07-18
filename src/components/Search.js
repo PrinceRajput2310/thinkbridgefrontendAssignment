@@ -6,12 +6,7 @@ import Cards from "./Cards";
 import Set from "./Set";
 import AddResturantModel from "./model/AddResturant";
 import { defaultImage, maxSafetyDelivery } from "../assets/imageUrl";
-import {
-  addRestaurant,
-  deleteRestaurant,
-  modifyRestaurant,
-} from "../redux/resturantSlice";
-import { zomatologo } from "../assets/imageUrl";
+import { addRestaurant } from "../redux/resturantSlice";
 
 const Search = () => {
   const [copydata, setCopyData] = useState([]);
@@ -60,14 +55,10 @@ const Search = () => {
     setIsAddResturantModelOpen(false);
   };
 
-  const handleDelete = (id) => {
-    console.log("delete function is getting call");
-    dispatch(deleteRestaurant(id));
-  };
-
-  const handleModify = (restaurant) => {
-    dispatch(modifyRestaurant(restaurant));
-  };
+  //   const handleDelete = (id) => {
+  //     console.log("delete function is getting call");
+  //     dispatch(deleteRestaurant(id));
+  //   };
 
   //   Search Resturant
 
@@ -97,16 +88,19 @@ const Search = () => {
   return (
     <div>
       <div className="container d-flex justify-content-between align-items-center">
-        <img
-          src={zomatologo}
+        <h3
           style={{
             width: "8rem",
             position: "relative",
             left: "2%",
             cursor: "pointer",
+            marginTop: "20px",
+            fontFamily: "cursive",
           }}
           alt=""
-        />
+        >
+          FOODIEDELIGHT
+        </h3>
       </div>
 
       <Form className="d-flex justify-content-center align-items-center mt-3">
@@ -124,7 +118,7 @@ const Search = () => {
           style={{ background: "#ed4c67" }}
           onClick={openAddResturantModel}
         >
-          Add Restaurant
+          + Add
         </button>
       </Form>
 
@@ -137,8 +131,8 @@ const Search = () => {
           {copydata && copydata.length ? (
             <Cards
               data={copydata}
-              handleDelete={handleDelete}
-              handleModify={handleModify}
+              //   handleDelete={handleDelete}
+              //   handleModify={handleModify}
             />
           ) : (
             <Set sdata={data} />

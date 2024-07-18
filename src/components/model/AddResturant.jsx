@@ -56,7 +56,7 @@ const AddResturantModel = ({
               Name
             </span>
             <input
-              placeholder="Define label for user message"
+              placeholder="Enter Resturant Name"
               className="editModel-userMessage-formContainer-inputbox"
               value={resturantName}
               onChange={onChangeResturantName}
@@ -69,7 +69,7 @@ const AddResturantModel = ({
               <textarea
                 value={description}
                 onChange={onChangeDescription}
-                placeholder="Define a bot task and give context"
+                placeholder="Add Resturant Description"
                 className="editModel-userMessage-formContainer-textarea"
               />
             </div>
@@ -78,7 +78,7 @@ const AddResturantModel = ({
               Address
             </span>
             <input
-              placeholder="Define label for user message"
+              placeholder="Enter Address"
               className="editModel-userMessage-formContainer-inputbox"
               value={address}
               onChange={onChangeAddress}

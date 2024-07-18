@@ -2,13 +2,16 @@ import React from 'react';
 
 
 const EditResturantModel = ({
+  newResturantName,
+  onChangeNewResturant,
+   handleModify,
+  newAddress,
+  onChangeNewAddress,
   isOpenEditModel,
   closeEditModel,
-  newLevel,
   newResponse,
-  onChangeNewLevel,
   onChangeNewResponse,
-  editUserSuggestedPrompt,
+  editId
 
 }) => {
   // useEffect(() => {
@@ -58,10 +61,10 @@ const EditResturantModel = ({
               Name
             </span>
             <input
-              placeholder="Define label for user message"
+              placeholder="Enter Resturant Name"
               className="editModel-userMessage-formContainer-inputbox"
-              value={newLevel}
-              onChange={onChangeNewLevel}
+              value={newResturantName}
+              onChange={onChangeNewResturant}
             />
            
         
@@ -72,7 +75,7 @@ const EditResturantModel = ({
                 <textarea
                   value={newResponse}
                   onChange={onChangeNewResponse}
-                  placeholder="Define a bot task and give context"
+                  placeholder="Enter Description"
                   className="editModel-userMessage-formContainer-textarea"
                 />
               </div>
@@ -81,10 +84,10 @@ const EditResturantModel = ({
               Address
             </span>
             <input
-              placeholder="Define label for user message"
+              placeholder="Enter Address"
               className="editModel-userMessage-formContainer-inputbox"
-              value={newLevel}
-              onChange={onChangeNewLevel}
+              value={newAddress}
+              onChange={onChangeNewAddress}
             />
             <div
               style={{
@@ -102,7 +105,7 @@ const EditResturantModel = ({
               </button>
               <button
                 type="button"
-                onClick={closeEditModel}
+                onClick={ ()=>handleModify(editId)}
                 className="editUserSuggestedPrompt-saveChanges-button"
               >
                 Save Changes
