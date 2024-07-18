@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;0,600;0,700;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,500&display=swap');
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.hove{
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.hove:hover{
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.1);
+    transition: .2s;
+}
+
+.cd{
+    border-radius: 16px;
+    margin-top: 20px;
+    height: 16rem;
+}
+
+.upper_data h4{
+    font-size: 18px;
+    color: rgba(17,17,17,0.849);
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+
+.upper_data span{
+    background-color: rgb(36,150,63);
+    border-radius: 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 1px;
+    width: 45px;
+}
+
+.lower_data h5{
+    font-size: 15px;
+letter-spacing: .4px;
+font-weight: 400;
+color:rgba(17,17,17,0.849) ;
+}
+
+.lower_data span{
+    font-size: 15px;
+    letter-spacing: .4px;
+    color:rgba(17,17,17,0.849) ;
+}
+
+.extra{
+    border-bottom: 1px solid rgba(17,17,17,0.449);
+}
+
+.last_data .limg{
+    width: 18px;
+}
+
+.last_data p{
+    font-size: 14px;
+    margin-top: 18px;
+    letter-spacing: .2px;
+    color: rgba(17,17,17,0.849);
+}
+
+.last_data .laimg{
+    width: 45px;
+}
+
+@media (max-width:600px){
+    .con{
+        flex-direction: column;
+        align-items: center;
+    }
+    .last_data p{
+        font-size: 12px;
+    }
+    .zomato{
+        margin-top: 12px;
+        position: none;
+    }
+}
+
+
+.editSuggestedPrompt-model-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1030;
+  }
+  
+  .editSuggestedPrompt-model-popup-content {
+    width: 646px;
+/* // height: 583px; */
+flex-shrink: 0;
+/* margin-top: 50px; */
+border-radius: var(--Spacing-Sapcing_12, 12px);
+background: #FCFCFD;
+    /* // background-color: white; */
+    padding: 36px;
+    /* // border-radius: 10px; */
+    /* // width: 468px; */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .editSuggestedPrompt-model-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .editModel-userMessage-formContainer-label-text{
+    color: #000;
+font-family: Roboto;
+font-size: 16px;
+display: block;
+text-align: justify;
+margin-top: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 112.5% */
+
+  }
+  .editModel-userMessage-formContainer-inputbox{
+    display: flex;
+    width: 574px;
+    height: var(--Spacing-Sapcing_56, 56px);
+    padding: var(--Spacing-Sapcing_16, 16px);
+    margin-top: 12px;
+    outline: none;
+    align-items: center;
+    gap: var(--Spacing-Sapcing_8, 8px);
+    border-radius: var(--Spacing-Sapcing_12, 12px);
+    border: 1px solid var(--Color-Blue-Info, #5483DF);
+    background: var(--Color-Light-Light, #FCFCFD);
+  }
+  .editModel-userMessage-formContainer-label-text-2{
+    color: #000;
+    font-family: Roboto;
+    font-size: 16px;
+    display: block;
+    text-align: justify;
+    margin-top: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .editModel-userMessage-formContainer-textarea{
+    display: flex;
+    height: 90px;
+    width: 574px;
+    outline: none;
+    resize: none;
+    padding: var(--Spacing-Sapcing_20, 20px);
+    align-items: flex-start;
+    gap: var(--Spacing-Sapcing_8, 8px);
+    margin-top: 12px;
+    align-self: stretch;
+    border-radius: var(--Spacing-Sapcing_12, 12px);
+    border: 1px solid var(--Color-Gray-tint, #DEE2E6);
+    background: var(--Color-Light-Light, #FCFCFD);
+  }
+  .editUserSuggestedPropmt-model-text{
+    color: #000;
+text-align: center;
+font-family: Roboto;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 32px; /* 133.333% */
+  }
+  .editUserSuggestedPrompt-image-containerWithText{
+    text-align: center;
+    margin-top: 16px;
+  }
+  .editUserSuggestedPrompt-imageText{
+    color: var(--Color-Gray-dark, #555);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px; /* 100% */
+  }
+  .editUserSuggestedPrompt-saveChanges-button{
+    display: flex;
+width: 156px;
+height: 49px;
+padding: 12px 22px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 12px;
+background: linear-gradient(90deg, #E13F41 0%, #772C58 100%);
+color: #FCFCFD;
+
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px;
+  }
+  .editUserSuggestedPrompt-cancel-button{
+    display: flex;
+width: 133.291px;
+height: 48.718px;
+padding: 12px 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+margin-right: 8px;
+border-radius: 12px;
+border: 1px solid var(--Color-Gray-MId, #C7C8C5);
+background: #FFF;
+color: var(--Color-Primary, #F14141);
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 112.5% */
+  }
