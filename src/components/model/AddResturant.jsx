@@ -3,36 +3,21 @@ import React  from "react";
 const AddResturantModel = ({
   isAddResturantModelOpen,
   resturantName,
-   onChangeResturantName,
-     address,
-             onChangeAddress,
+  onChangeResturantName,
+  address,
+  onChangeAddress,
   closeAddResturantModel,
-   description,
-           onChangeDescription,
-  handleAddResturant
+  description,
+  onChangeDescription,
+  handleAddResturant,
+  resturantNameError,
+  addressError,
+  descriptionError
 
 }) => {
 
   console.log("inside add resturant popup",isAddResturantModelOpen);
-  // useEffect(() => {
-  //   const handleOutsideClick = (event) => {
-  //     if (
-  //       isAddResturantModelOpen &&
-  //       event.target.closest(".editSuggestedPrompt-model-popup-content") ===
-  //         null
-  //     ) {
-  //       closeAddResturantModel();
-  //     }
-  //   };
-
-  //   if (isAddResturantModelOpen) {
-  //     document.addEventListener("click", handleOutsideClick);
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("click", handleOutsideClick);
-  //   };
-  // }, [isAddResturantModelOpen,closeAddResturantModel]);
+ 
 
   return (
     <div>
@@ -61,7 +46,12 @@ const AddResturantModel = ({
               value={resturantName}
               onChange={onChangeResturantName}
             />
-
+            <span style={{
+              color:'red',
+              textAlign:'justify',
+              display:'block'
+            }}
+            >{resturantNameError}</span>
             <div>
               <span className="editModel-userMessage-formContainer-label-text-2">
                 Description
@@ -72,6 +62,11 @@ const AddResturantModel = ({
                 placeholder="Add Resturant Description"
                 className="editModel-userMessage-formContainer-textarea"
               />
+              <span style={{
+              color:'red',
+              textAlign:'justify',
+              display:'block'
+            }}>{descriptionError}</span>
             </div>
 
             <span className="editModel-userMessage-formContainer-label-text">
@@ -83,6 +78,11 @@ const AddResturantModel = ({
               value={address}
               onChange={onChangeAddress}
             />
+            <span style={{
+              color:'red',
+              textAlign:'justify',
+              display:'block'
+            }}>{addressError}</span>
 
             <div
               style={{

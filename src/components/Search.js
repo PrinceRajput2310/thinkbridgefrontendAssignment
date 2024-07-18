@@ -15,14 +15,17 @@ const Search = () => {
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const dispatch = useDispatch();
+  const [resturantNameError, setResturantNameError] = useState("");
+  const [addressError, setAddressError] = useState("");
+  const [descriptionError, setDescriptionError] = useState("");
   const { data } = useSelector((state) => state.restaurants);
 
   // useEffetc to load initial data
   useEffect(() => {
     setCopyData(data);
   }, [data]);
-  // onChange Method for add Resturant
 
+  // onChange Method for add Resturant
   const onChangeResturantName = (e) => {
     setResturantName(e.target.value);
   };
@@ -36,6 +39,16 @@ const Search = () => {
 
   // Resturant CRUD Operation
   const handleAddResturant = () => {
+    if (
+      resturantName.trim() === "" &&
+      description.trim() === "" &&
+      address.trim() === ""
+    ) {
+      setResturantNameError("Please Enter Resturant Name");
+      setAddressError("Please Enter Resturant Address");
+      setDescriptionError("Please Enter Description");
+      return;
+    }
     const newRestaurant = {
       id: data.length + 1,
       rname: resturantName,
@@ -84,7 +97,7 @@ const Search = () => {
   };
 
   console.log("Resturant Data", data);
-  console.log("Parents components");
+  console.log("Parents components", resturantNameError);
   return (
     <div>
       <div className="container d-flex justify-content-between align-items-center">
@@ -124,7 +137,7 @@ const Search = () => {
 
       <section className="iteam_section mt-4 container">
         <h2 className="px-4" style={{ fontWeight: 400 }}>
-          {data && data.length} Restaurants in Bihar Open now
+          {data && data.length} Restaurants in Patna Open now
         </h2>
 
         <div className="row mt-2 d-flex justify-content-around align-items-center">
@@ -149,6 +162,9 @@ const Search = () => {
         onChangeAddress={onChangeAddress}
         closeAddResturantModel={closeAddResturantModel}
         handleAddResturant={handleAddResturant}
+        resturantNameError={resturantNameError}
+        addressError={addressError}
+        descriptionError={descriptionError}
       />
     </div>
   );
