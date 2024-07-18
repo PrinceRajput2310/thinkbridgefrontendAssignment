@@ -127,7 +127,16 @@ const Cards = ({ data, handleEdit }) => {
           </Card>
         );
       })}
-
+      <a
+        style={{
+          marginBottom: "50px",
+          display: "block",
+          textAlign: "center",
+        }}
+        href="https://princekumarsingh.netlify.app/"
+      >
+        Made By:- princesinghrajput2310oct@gmail.com
+      </a>
       <EditResturantModel
         isOpenEditModel={isEditModelOpen}
         openEditModel={openEditModel}
