@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 //import DropdownButton from "react-bootstrap/DropdownButton";
 // import AddResturantModel from "./model/AddResturant";
@@ -7,19 +7,13 @@ import { ThreeDotsVertical } from "react-bootstrap-icons";
 import EditResturantModel from "./model/EditResturantModel";
 
 const Cards = ({ data, handleEdit, handleDelete }) => {
-  //   const [isEditModelOpen, setIsEditModelOpen] = useState(false);
-
-  const isEditModelOpen = useRef(false);
-  const [, setRender] = useState(0);
-  const forceUpdate = () => setRender((prev) => prev + 1);
+  const [isEditModelOpen, setIsEditModelOpen] = useState(false);
 
   const openEditModel = () => {
-    isEditModelOpen.current = true;
-    forceUpdate();
-    // setIsEditModelOpen(true);
+    setIsEditModelOpen(true);
   };
   const closeEditModel = () => {
-    // setIsEditModelOpen(false);
+    setIsEditModelOpen(false);
   };
   console.log("Child components");
   return (

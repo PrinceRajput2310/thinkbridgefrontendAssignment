@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 
 const AddResturantModel = ({
   isAddResturantModelOpen,
@@ -10,25 +10,27 @@ const AddResturantModel = ({
   handleAddResturant
 
 }) => {
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        isAddResturantModelOpen &&
-        event.target.closest(".editSuggestedPrompt-model-popup-content") ===
-          null
-      ) {
-        closeAddResturantModel();
-      }
-    };
 
-    if (isAddResturantModelOpen) {
-      document.addEventListener("click", handleOutsideClick);
-    }
+  console.log("inside add resturant popup",isAddResturantModelOpen);
+  // useEffect(() => {
+  //   const handleOutsideClick = (event) => {
+  //     if (
+  //       isAddResturantModelOpen &&
+  //       event.target.closest(".editSuggestedPrompt-model-popup-content") ===
+  //         null
+  //     ) {
+  //       closeAddResturantModel();
+  //     }
+  //   };
 
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [isAddResturantModelOpen,closeAddResturantModel]);
+  //   if (isAddResturantModelOpen) {
+  //     document.addEventListener("click", handleOutsideClick);
+  //   }
+
+  //   return () => {
+  //     document.removeEventListener("click", handleOutsideClick);
+  //   };
+  // }, [isAddResturantModelOpen,closeAddResturantModel]);
 
   return (
     <div>
@@ -87,13 +89,13 @@ const AddResturantModel = ({
                 marginTop: "20px",
               }}
             >
-              {/* <button
+              <button
                 type="button"
                 onClick={closeAddResturantModel}
                 className="editUserSuggestedPrompt-cancel-button"
               >
                 Cancel
-              </button> */}
+              </button>
               <button
                 type="button"
                 onClick={handleAddResturant}

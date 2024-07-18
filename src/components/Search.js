@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./style.css";
 import Form from "react-bootstrap/Form";
@@ -15,16 +15,12 @@ import { zomatologo } from "../assets/imageUrl";
 
 const Search = () => {
   const [copydata, setCopyData] = useState([]);
-  //   const [isAddResturantModelOpen, setIsAddResturantModelOpen] = useState(true);
+  const [isAddResturantModelOpen, setIsAddResturantModelOpen] = useState(false);
   const [resturantName, setResturantName] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.restaurants);
-
-  const isAddResturantModelOpen = useRef(false);
-  const [, setRender] = useState(0);
-  const forceUpdate = () => setRender((prev) => prev + 1);
 
   // useEffetc to load initial data
   useEffect(() => {
@@ -56,7 +52,7 @@ const Search = () => {
       rating: "4.5",
       arrimg: "",
     };
-    // console.log("New Resturant added", newRestaurant);
+
     dispatch(addRestaurant(newRestaurant));
   };
 
@@ -85,13 +81,10 @@ const Search = () => {
   };
 
   const openAddResturantModel = () => {
-    isAddResturantModelOpen.current = true;
-    forceUpdate();
+    setIsAddResturantModelOpen(true);
   };
   const closeAddResturantModel = () => {
-    // setIsAddResturantModelOpen(false);
-    isAddResturantModelOpen.current = false;
-    // forceUpdate();
+    setIsAddResturantModelOpen(false);
   };
 
   console.log("Resturant Data", isAddResturantModelOpen);
@@ -148,7 +141,7 @@ const Search = () => {
         </div>
       </section>
       <AddResturantModel
-        isAddResturantModelOpen={isAddResturantModelOpen.current}
+        isAddResturantModelOpen={isAddResturantModelOpen}
         resturantName={resturantName}
         onChangeResturantName={onChangeResturantName}
         description={description}

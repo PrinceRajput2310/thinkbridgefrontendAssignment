@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 
 const EditResturantModel = ({
@@ -8,28 +8,28 @@ const EditResturantModel = ({
   newResponse,
   onChangeNewLevel,
   onChangeNewResponse,
-
+  editUserSuggestedPrompt,
 
 }) => {
-  useEffect(() => {
-    const handleOutsideClick = event => {
-      if (
-        isOpenEditModel &&
-        event.target.closest('.editSuggestedPrompt-model-popup-content') ===
-          null
-      ) {
-      closeEditModel();
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = event => {
+  //     if (
+  //       isOpenEditModel &&
+  //       event.target.closest('.editSuggestedPrompt-model-popup-content') ===
+  //         null
+  //     ) {
+  //     closeEditModel();
+  //     }
+  //   };
 
-    if (isOpenEditModel) {
-      document.addEventListener('click', handleOutsideClick);
-    }
+  //   if (isOpenEditModel) {
+  //     document.addEventListener('click', handleOutsideClick);
+  //   }
 
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, [isOpenEditModel,closeEditModel]);
+  //   return () => {
+  //     document.removeEventListener('click', handleOutsideClick);
+  //   };
+  // }, [isOpenEditModel,closeEditModel]);
 
   return (
     <div>
@@ -93,13 +93,13 @@ const EditResturantModel = ({
                 marginTop: '20px',
               }}
             >
-              {/* <button
+              <button
                 type="button"
                 onClick={closeEditModel}
                 className="editUserSuggestedPrompt-cancel-button"
               >
                 Cancel
-              </button> */}
+              </button>
               <button
                 type="button"
                 onClick={closeEditModel}
