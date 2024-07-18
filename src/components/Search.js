@@ -90,7 +90,7 @@ const Search = () => {
   console.log("Resturant Data", isAddResturantModelOpen);
   console.log("Parents components");
   return (
-    <>
+    <div>
       <div className="container d-flex justify-content-between align-items-center">
         <img
           src={zomatologo}
@@ -151,7 +151,7 @@ const Search = () => {
         closeAddResturantModel={closeAddResturantModel}
         handleAddResturant={handleAddResturant}
       />
-    </>
+    </div>
   );
 };
 

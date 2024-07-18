@@ -1,41 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 const DeleteResturant = ({
-  isDeleteUserPromptModelOpen,
+  isDeleteModelOpen,
+  closeDeleteModel,
   closeDeleteUserPromptModel,
   deleteUserSuggestedPrompt,
   newLevel,
 }) => {
-  useEffect(() => {
-    const handleOutsideClick = event => {
-      if (
-        isDeleteUserPromptModelOpen &&
-        event.target.closest('.deleteSuggestedPrompt-model-popup-content') ===
-          null
-      ) {
-        closeDeleteUserPromptModel();
-      }
-    };
-
-    if (isDeleteUserPromptModelOpen) {
-      document.addEventListener('click', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, [isDeleteUserPromptModelOpen, closeDeleteUserPromptModel]);
+console.log("inside delete model value",isDeleteModelOpen)
 
   return (
     <div>
-      {isDeleteUserPromptModelOpen && (
+      {isDeleteModelOpen && (
         <div className="deleteSuggestedPrompt-model-popup">
           <div className="deleteSuggestedPrompt-model-popup-content">
             <span
               className="deleteSuggestedPrompt-model-close-btn"
               role="button"
-              onClick={closeDeleteUserPromptModel}
+              onClick={closeDeleteModel}
               tabIndex={0}
-              onKeyDown={closeDeleteUserPromptModel}
+              onKeyDown={closeDeleteModel}
             >
               &times;
             </span>
@@ -55,14 +38,14 @@ const DeleteResturant = ({
             >
               <button
                 type="button"
-                onClick={closeDeleteUserPromptModel}
+                onClick={closeDeleteModel}
                 className="editUserSuggestedPrompt-cancel-button"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                onClick={deleteUserSuggestedPrompt}
+                onClick={closeDeleteModel}
                 className="editUserSuggestedPrompt-saveChanges-button"
               >
                 Delete

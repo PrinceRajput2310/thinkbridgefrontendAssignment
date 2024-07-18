@@ -5,9 +5,18 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import { ThreeDotsVertical } from "react-bootstrap-icons";
 import EditResturantModel from "./model/EditResturantModel";
+import DeleteResturant from "./model/DeleteResturant";
 
 const Cards = ({ data, handleEdit, handleDelete }) => {
   const [isEditModelOpen, setIsEditModelOpen] = useState(false);
+  const [isDeleteModelOpen, setIsDeleteModelOpen] = useState(false);
+
+  const openDeleteModel = () => {
+    setIsDeleteModelOpen(true);
+  };
+  const closeDeleteModel = () => {
+    setIsDeleteModelOpen(false);
+  };
 
   const openEditModel = () => {
     setIsEditModelOpen(true);
@@ -49,7 +58,8 @@ const Cards = ({ data, handleEdit, handleDelete }) => {
                   </Dropdown.Item>
                   <Dropdown.Item
                     as="button"
-                    onClick={() => handleDelete(element.id)}
+                    onClick={openDeleteModel}
+                    // onClick={() => handleDelete(element.id)}
                   >
                     Delete
                   </Dropdown.Item>
@@ -82,6 +92,12 @@ const Cards = ({ data, handleEdit, handleDelete }) => {
         isOpenEditModel={isEditModelOpen}
         openEditModel={openEditModel}
         closeEditModel={closeEditModel}
+      />
+
+      <DeleteResturant
+        isDeleteModelOpen={isDeleteModelOpen}
+        openDeleteModel={openDeleteModel}
+        closeDeleteModel={closeDeleteModel}
       />
     </>
   );
