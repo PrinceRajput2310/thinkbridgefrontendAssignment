@@ -2,11 +2,13 @@ import React  from "react";
 
 const AddResturantModel = ({
   isAddResturantModelOpen,
-  // newLevel,
-  // newResponse,
-  // onChangeNewLevel,
-  // onChangeNewResponse,
+  resturantName,
+   onChangeResturantName,
+     address,
+             onChangeAddress,
   closeAddResturantModel,
+   description,
+           onChangeDescription,
   handleAddResturant
 
 }) => {
@@ -56,8 +58,8 @@ const AddResturantModel = ({
             <input
               placeholder="Define label for user message"
               className="editModel-userMessage-formContainer-inputbox"
-              // value={newLevel}
-              // onChange={onChangeNewLevel}
+              value={resturantName}
+              onChange={onChangeResturantName}
             />
 
             <div>
@@ -65,8 +67,8 @@ const AddResturantModel = ({
                 Description
               </span>
               <textarea
-                // value={newResponse}
-                // onChange={onChangeNewResponse}
+                value={description}
+                onChange={onChangeDescription}
                 placeholder="Define a bot task and give context"
                 className="editModel-userMessage-formContainer-textarea"
               />
@@ -78,8 +80,8 @@ const AddResturantModel = ({
             <input
               placeholder="Define label for user message"
               className="editModel-userMessage-formContainer-inputbox"
-              // value={newLevel}
-              // onChange={onChangeNewLevel}
+              value={address}
+              onChange={onChangeAddress}
             />
 
             <div

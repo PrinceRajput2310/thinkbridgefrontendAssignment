@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Cards from "./Cards";
 import Set from "./Set";
 import AddResturantModel from "./model/AddResturant";
-import { defaultImage } from "../assets/imageUrl";
+import { defaultImage, maxSafetyDelivery } from "../assets/imageUrl";
 import {
   addRestaurant,
   deleteRestaurant,
@@ -43,20 +43,25 @@ const Search = () => {
   const handleAddResturant = () => {
     const newRestaurant = {
       id: data.length + 1,
-      rname: "New Restaurant",
+      rname: resturantName,
       imgdata: defaultImage,
-      address: "",
+      address: address,
       delimg: "",
       somedata: "500 + order placed from here recently",
       price: "1000 Per person",
       rating: "4.5",
-      arrimg: "",
+      arrimg: maxSafetyDelivery,
     };
 
     dispatch(addRestaurant(newRestaurant));
+    setResturantName("");
+    setAddress("");
+    setDescription("");
+    setIsAddResturantModelOpen(false);
   };
 
   const handleDelete = (id) => {
+    console.log("delete function is getting call");
     dispatch(deleteRestaurant(id));
   };
 
@@ -87,7 +92,7 @@ const Search = () => {
     setIsAddResturantModelOpen(false);
   };
 
-  console.log("Resturant Data", isAddResturantModelOpen);
+  console.log("Resturant Data", data);
   console.log("Parents components");
   return (
     <div>
@@ -125,7 +130,7 @@ const Search = () => {
 
       <section className="iteam_section mt-4 container">
         <h2 className="px-4" style={{ fontWeight: 400 }}>
-          Restaurants in Bihar Open now
+          {data && data.length} Restaurants in Bihar Open now
         </h2>
 
         <div className="row mt-2 d-flex justify-content-around align-items-center">

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useDispatch } from "react-redux";
+import { deleteRestaurant } from "../redux/resturantSlice";
 //import DropdownButton from "react-bootstrap/DropdownButton";
 // import AddResturantModel from "./model/AddResturant";
 import Card from "react-bootstrap/Card";
@@ -7,11 +9,22 @@ import { ThreeDotsVertical } from "react-bootstrap-icons";
 import EditResturantModel from "./model/EditResturantModel";
 import DeleteResturant from "./model/DeleteResturant";
 
-const Cards = ({ data, handleEdit, handleDelete }) => {
+const Cards = ({ data, handleEdit }) => {
   const [isEditModelOpen, setIsEditModelOpen] = useState(false);
   const [isDeleteModelOpen, setIsDeleteModelOpen] = useState(false);
+  const [resturantName, setResturantName] = useState("");
+  const [deletedId, setDeletedId] = useState("");
+  const dispatch = useDispatch();
 
-  const openDeleteModel = () => {
+  const handleDelete = (id) => {
+    console.log("delete function is getting call");
+    dispatch(deleteRestaurant(id));
+    setIsDeleteModelOpen(false);
+  };
+
+  const openDeleteModel = (rName, id) => {
+    setDeletedId(id);
+    setResturantName(rName);
     setIsDeleteModelOpen(true);
   };
   const closeDeleteModel = () => {
@@ -51,14 +64,14 @@ const Cards = ({ data, handleEdit, handleDelete }) => {
                 <Dropdown.Menu align={"end"}>
                   <Dropdown.Item
                     as="button"
-                    onClick={openEditModel}
+                    onClick={() => openEditModel(element.id)}
                     // onClick={() => handleEdit(element.id)}
                   >
                     Edit
                   </Dropdown.Item>
                   <Dropdown.Item
                     as="button"
-                    onClick={openDeleteModel}
+                    onClick={() => openDeleteModel(element.rname, element.id)}
                     // onClick={() => handleDelete(element.id)}
                   >
                     Delete
@@ -96,8 +109,11 @@ const Cards = ({ data, handleEdit, handleDelete }) => {
 
       <DeleteResturant
         isDeleteModelOpen={isDeleteModelOpen}
+        deletedId={deletedId}
         openDeleteModel={openDeleteModel}
         closeDeleteModel={closeDeleteModel}
+        handleDelete={handleDelete}
+        resturantName={resturantName}
       />
     </>
   );

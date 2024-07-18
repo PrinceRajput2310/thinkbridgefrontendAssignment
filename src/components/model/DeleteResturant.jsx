@@ -2,9 +2,9 @@ import React from 'react';
 const DeleteResturant = ({
   isDeleteModelOpen,
   closeDeleteModel,
-  closeDeleteUserPromptModel,
-  deleteUserSuggestedPrompt,
-  newLevel,
+  resturantName,
+  handleDelete,
+  deletedId
 }) => {
 console.log("inside delete model value",isDeleteModelOpen)
 
@@ -26,7 +26,7 @@ console.log("inside delete model value",isDeleteModelOpen)
               Are you sure?
             </div>
             <div className="deleteUserSuggestedPropmt-model-text2">
-              You are going to delete this Resturant ‘<b>{newLevel} </b>
+              You are going to delete this Resturant ‘<b>{resturantName} </b>
               ’.
             </div>
             <div
@@ -45,7 +45,7 @@ console.log("inside delete model value",isDeleteModelOpen)
               </button>
               <button
                 type="button"
-                onClick={closeDeleteModel}
+                onClick={()=>handleDelete(deletedId)}
                 className="editUserSuggestedPrompt-saveChanges-button"
               >
                 Delete
